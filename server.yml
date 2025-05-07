@@ -1,1 +1,11 @@
-what should i do
+---
+- name: List dir
+  hosts: all
+  tasks:
+    - name: List files in /tmp
+      command: ls -l /tmp
+      register: result
+
+    - name: Print result
+      debug:
+        var: result.stdout_lines
